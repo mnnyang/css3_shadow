@@ -1,0 +1,140 @@
+@charset "UTF-8";
+
+body {
+    font-family: Arial, serif;
+    font-size: 20px;
+}
+
+body, ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.wrap {
+    width: 70%;
+    height: 200px;
+    margin: 50px auto;
+    background: #ffffff;
+}
+
+.wrap h3 {
+    font-size: 20px;
+    text-align: center;
+    line-height: 200px;
+}
+
+.effect {
+    position: relative;
+    /*水平 垂直 模糊 阴影距离（*） */
+    /*水平垂直设置为0  则从四个方向发出阴影*/
+    -webkit-box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.3), 0px 0px 40px rgba(0, 0, 0, 0.1) inset;
+    box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.3), 0px 0px 40px rgba(0, 0, 0, 0.1) inset;
+    -moz-box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.3), 0px 0px 40px rgba(0, 0, 0, 0.1) inset;
+}
+
+/*在effect的前面插入内容*/
+/*.effect:before{*/
+/*content: 'hello';*/
+/*content: url("");*/
+/*}*/
+
+/*曲线阴影*/
+.effect:after, .effect:before {
+    content: '';
+    background: #f00;
+    position: absolute;
+    z-index: -1;
+    /*不指定宽高 用 top bottom .. 来定位自动宽高 缺一不可*/
+    top: 50%;
+    bottom: 0px;
+    left: 10px;
+    right: 10px;
+
+    -webkit-box-shadow: 0 0 20px rgba(0, 0, 0, 0.8);
+    -moz-box-shadow: 0 0 20px rgba(0, 0, 0, 0.8);
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.8);
+
+    border-radius: 100px/10px; /*水平方向上的半径是100 垂直方向上的是10*/
+}
+
+.box {
+    width: 980px;
+    height: auto;
+    clear: both;
+    overflow: hidden;
+    margin: 20px auto;
+}
+
+.box li {
+    width: 300px;
+    height: 210px;
+    float: left;
+    margin: 20px 10px;
+    border: 2px solid #efefef;
+
+    position: relative;
+
+    background: #ffffff;
+
+    -webkit-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.27), 0 0 60px rgba(0, 0, 0, 0.1) inset;
+    -moz-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.27), 0 0 60px rgba(0, 0, 0, 0.1) inset;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.27), 0 0 60px rgba(0, 0, 0, 0.1) inset;
+
+}
+
+.box li:before {
+    content: '';
+    background: #ff0000;
+    position: absolute;
+    width: 90%;
+    height: 80%;
+    left: 20px;
+    bottom: 8px;
+
+    z-index: -2;
+
+    background: transparent;
+
+    -webkit-box-shadow: 0 8px 20px rgba(0, 0, 0, 0.6);
+    -moz-box-shadow: 0 8px 20px rgba(0, 0, 0, 0.6);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.6);
+
+    /*向左倾斜12deg*/
+    -webkit-transform: skew(-12deg) rotate(-4deg);
+    -moz-transform: skew(-12deg) rotate(-4deg);
+    -ms-transform: skew(-12deg) rotate(-4deg);
+    -o-transform: skew(-12deg) rotate(-4deg);
+    transform: skew(-12deg) rotate(-4deg);
+}
+
+.box li:after {
+    content: '';
+    background: #ff0000;
+    position: absolute;
+    width: 90%;
+    height: 80%;
+    right:  20px;
+    bottom: 8px;
+
+    z-index: -2;
+
+    background: transparent;
+
+    -webkit-box-shadow: 0 8px 20px rgba(0, 0, 0, 0.6);
+    -moz-box-shadow: 0 8px 20px rgba(0, 0, 0, 0.6);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.6);
+
+    -webkit-transform: skew(12deg) rotate(4deg);
+    -moz-transform: skew(12deg) rotate(4deg);
+    -ms-transform: skew(12deg) rotate(4deg);
+    -o-transform: skew(12deg) rotate(4deg);
+    transform: skew(12deg) rotate(4deg);
+}
+
+.box li img {
+    display: block;
+    width: 290px;
+    height: 200px;
+    margin: 5px;
+}
